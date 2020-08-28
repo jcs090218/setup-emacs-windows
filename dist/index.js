@@ -1414,7 +1414,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(186));
-const exec = __importStar(__webpack_require__(514));
 const tc = __importStar(__webpack_require__(784));
 const fs_1 = __importDefault(__webpack_require__(747));
 function run() {
@@ -1465,14 +1464,16 @@ function run() {
                     break;
                 }
             }
+            const extractPath = __dirname + "\\..\\temp";
+            if (!fs_1.default.existsSync(extractPath)) {
+                fs_1.default.mkdirSync(extractPath);
+            }
             const emacsZip = yield tc.downloadTool(zipPath);
-            const emacsDir = yield tc.extractZip(emacsZip, __dirname);
-            yield exec.exec("dir dist");
+            const emacsDir = yield tc.extractZip(emacsZip, extractPath);
             let emacsBin = emacsDir + "\\bin";
-            if (fs_1.default.existsSync(emacsBin)) {
+            if (!fs_1.default.existsSync(emacsBin)) {
                 emacsBin = emacsDir + "\\" + emacs_dot_var + "\\bin";
             }
-            console.log("emacsBin: " + emacsBin);
             const cachtedPath = yield tc.cacheDir(emacsBin, "emacs", dot_ver);
             core.addPath(cachtedPath);
             core.exportVariable("PATH", "%PATH%;" + emacsBin);

@@ -55,8 +55,13 @@ async function run(): Promise<void> {
             }
         }
 
+        const extractPath = __dirname + "\\..\\temp";
+        if (!fs.existsSync(extractPath)) {
+            fs.mkdirSync(extractPath);
+        }
+
         const emacsZip = await tc.downloadTool(zipPath);
-        const emacsDir = await tc.extractZip(emacsZip, __dirname);
+        const emacsDir = await tc.extractZip(emacsZip, extractPath);
 
         let emacsBin = emacsDir + "\\bin";
         if (!fs.existsSync(emacsBin)) {
