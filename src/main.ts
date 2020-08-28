@@ -53,13 +53,13 @@ async function run(): Promise<void> {
             }
         }
 
-        console.log("zipPath: " + zipPath);
         const emacsZip = await tc.downloadTool(zipPath);
         const emacsDir = await tc.extractZip(emacsZip, './');
 
-        const emacsBin = "%PATH%;" + emacsDir + "bin";
-        console.log("emacsBin: " + emacsBin);
-        core.exportVariable("PATH", emacsBin);
+        // const emacsBin = "%PATH%;" + emacsDir + "bin";
+        // console.log("emacsBin: " + emacsBin);
+        // core.exportVariable("PATH", emacsBin);
+        core.addPath(emacsBin);
 
         core.endGroup();
 
