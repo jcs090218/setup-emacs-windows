@@ -58,6 +58,8 @@ async function run(): Promise<void> {
         const emacsZip = await tc.downloadTool(zipPath);
         const emacsDir = await tc.extractZip(emacsZip, __dirname);
 
+        await exec.exec("dir");
+
         const emacsBin = emacsDir + "\\bin";
         console.log("emacsBin: " + emacsBin);
         const cachtedPath = await tc.cacheDir(emacsBin, "emacs", dot_ver);
