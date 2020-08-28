@@ -9,16 +9,16 @@ async function run(): Promise<void> {
         const ver_lst = version.split(".");
         const emacs_major_ver = ver_lst[0];
         const emacs_minor_ver = ver_lst[1];
-        const emacs_dot_var = "emacs-" + emacs_major_ver + "." + emacs_minor_ver;
-        const emacs_dash_ver = "emacs-" + emacs_major_ver + "-" + emacs_minor_ver;
+        const dot_ver = emacs_major_ver + "." + emacs_minor_ver;
+        const dash_ver = emacs_major_ver + "-" + emacs_minor_ver;
+        const emacs_dot_var = "emacs-" + dot_ver;
+        const emacs_dash_ver = "emacs-" + dash_ver;
 
         core.startGroup("Installing Emacs");
         const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
         let zipPath = ftpUrl + emacs_dot_var;
 
-        console.log(emacs_dot_var);
-
-        switch (emacs_dot_var) {
+        switch (dot_ver) {
             case "23.4":
             case "24.1":
             case "24.2":
