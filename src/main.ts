@@ -60,8 +60,8 @@ async function run(): Promise<void> {
 
         const emacsBin = emacsDir + "\\bin";
         console.log("emacsBin: " + emacsBin);
-        const cachtedPath = await tc.cacheDir(emacsBin);
-        core.addPath(emacsBin);
+        const cachtedPath = await tc.cacheDir(emacsBin, "emacs", dot_ver);
+        core.addPath(cachtedPath);
         core.exportVariable("PATH", "%PATH%;" + emacsBin);
         core.endGroup();
 
