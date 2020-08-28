@@ -13,7 +13,7 @@ async function run(): Promise<void> {
         const emacs_dash_ver = "emacs-" + emacs_major_ver + "-" + emacs_minor_ver;
 
         core.startGroup("Installing Emacs");
-        const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/" + emacs_major_ver + "/";
+        const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
         let zipPath = ftpUrl + emacs_dot_var;
 
         switch (emacs_dot_var) {
