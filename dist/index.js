@@ -1409,22 +1409,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(186));
 const exec = __importStar(__webpack_require__(514));
 const tc = __importStar(__webpack_require__(784));
+const fs_1 = __importDefault(__webpack_require__(747));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const PATH = process.env.PATH;
             const version = core.getInput("version");
-            const ver_lst = version.split(".");
-            const emacs_major_ver = ver_lst[0];
-            const emacs_minor_ver = ver_lst[1];
-            const dot_ver = emacs_major_ver + "." + emacs_minor_ver;
-            const dash_ver = emacs_major_ver + "-" + emacs_minor_ver;
-            const emacs_dot_var = "emacs-" + dot_ver;
-            const emacs_dash_ver = "emacs-" + dash_ver;
+            const ver_lst = version.split("."); // if 27.1
+            const emacs_major_ver = ver_lst[0]; // 27
+            const emacs_minor_ver = ver_lst[1]; // 1
+            const dot_ver = emacs_major_ver + "." + emacs_minor_ver; // 27.1
+            const dash_ver = emacs_major_ver + "-" + emacs_minor_ver; // 27-1
+            const emacs_dot_var = "emacs-" + dot_ver; // emacs-27.1
             core.startGroup("Installing Emacs");
             const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
             let zipPath = ftpUrl + emacs_dot_var;
@@ -1465,7 +1468,10 @@ function run() {
             const emacsZip = yield tc.downloadTool(zipPath);
             const emacsDir = yield tc.extractZip(emacsZip, __dirname);
             yield exec.exec("dir dist");
-            const emacsBin = emacsDir + "\\bin";
+            let emacsBin = emacsDir + "\\bin";
+            if (fs_1.default.existsSync(emacsBin)) {
+                emacsBin = emacsDir + "\\" + emacs_dot_var + "\\bin";
+            }
             console.log("emacsBin: " + emacsBin);
             const cachtedPath = yield tc.cacheDir(emacsBin, "emacs", dot_ver);
             core.addPath(cachtedPath);

@@ -61,8 +61,7 @@ async function run(): Promise<void> {
         await exec.exec("dir dist");
 
         let emacsBin = emacsDir + "\\bin";
-
-        if (fs.existsSync(emacsBin)) {
+        if (!fs.existsSync(emacsBin)) {
             emacsBin = emacsDir + "\\" + emacs_dot_var + "\\bin";
         }
 
