@@ -16,6 +16,8 @@ async function run(): Promise<void> {
         const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
         let zipPath = ftpUrl + emacs_dot_var;
 
+        console.log(emacs_dot_var);
+
         switch (emacs_dot_var) {
             case "23.4":
             case "24.1":
