@@ -12,6 +12,7 @@ async function run(): Promise<void> {
         core.startGroup("Installing Emacs");
         const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/" + emacs_dash_ver + "/";
         const zipPath = ftpUrl + emacs_dot_var + "-x86_64.zip";
+        console.log("zipPath: " + zipPath);
         const emacsZip = await tc.downloadTool(zipPath);
         const emacsDir = await tc.extractZip(emacsZip, './');
 
