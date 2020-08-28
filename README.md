@@ -1,6 +1,6 @@
 [![Build Status](https://github.com/jcs090218/setup-emacs-windows/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions)
 
-# Set up Emacs in Window
+# Set up Emacs in Windows
 > A Github Action that installs a specific emacs version
 
 ## Usage:

@@ -1,4 +1,4 @@
-name: 'Set up Emacs in Window'
+name: 'Set up Emacs in Windows'
 description: 'Install a specific Emacs version for use in your worflow.'
 author: 'Shen, Jen-Chieh'
 inputs:
