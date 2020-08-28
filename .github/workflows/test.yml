@@ -24,6 +24,6 @@ jobs:
     - uses: ./
       with:
         version: ${{ matrix.emacs_version }}
-    - ::add-path::./temp
+    - run: echo "::add-path::./temp"
     - name: Check emacs version
       run: emacs --version
