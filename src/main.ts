@@ -1,5 +1,5 @@
-import * as core from '@actions/core'
-import {wait} from './wait'
+import * as core from '@actions/core';
+import {wait} from './wait';
 
 async function run(): Promise<void> {
   try {
@@ -16,4 +16,4 @@ async function run(): Promise<void> {
   }
 }
 
-run()
+run();
