@@ -5,6 +5,8 @@ import * as tc from "@actions/tool-cache";
 
 async function run(): Promise<void> {
     try {
+        const PATH = process.env.PATH;
+
         const version = core.getInput("version");
         const ver_lst = version.split(".");
         const emacs_major_ver = ver_lst[0];
@@ -54,9 +56,11 @@ async function run(): Promise<void> {
         }
 
         const emacsZip = await tc.downloadTool(zipPath);
-        const emacsDir = await tc.extractZip(emacsZip, './');
+        const emacsDir = await tc.extractZip(emacsZip, PATH);
+        
+        console.log(PATH);
 
-        const emacsBin = emacsDir + "bin";
+        const emacsBin = PATH + "bin";
         core.exportVariable("PATH", "%PATH%;" + emacsBin);
 
         core.endGroup();
