@@ -1,11 +1,9 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Test and learn GitHub action'
+description: 'Test and learn GitHub action.'
+author: 'Jen-Chieh Shen'
 inputs:
-  milliseconds: # change this
-    required: true
+  version: # change this
     description: 'input description here'
-    default: 'default value if applicable'
 runs:
   using: 'node12'
   main: 'dist/index.js'
