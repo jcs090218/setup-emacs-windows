@@ -6,11 +6,14 @@ import * as tc from "@actions/tool-cache";
 async function run(): Promise<void> {
     try {
         const version = core.getInput("version");
-        const emacs_dot_var = "emacs-" + version;
-        const emacs_dash_ver = emacs_dot_var.replace(".", "-");
+        const ver_lst = version.split(".");
+        const emacs_major_ver = ver_lst[0];
+        const emacs_minor_ver = ver_lst[1];
+        const emacs_dot_var = "emacs-" + emacs_major_ver + "." + emacs_minor_ver;
+        const emacs_dash_ver = "emacs-" + emacs_major_ver + "-" + emacs_minor_ver;
 
         core.startGroup("Installing Emacs");
-        const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/" + emacs_dash_ver + "/";
+        const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/" + emacs_major_ver + "/";
         let zipPath = ftpUrl + emacs_dot_var;
 
         switch (emacs_dot_var) {
