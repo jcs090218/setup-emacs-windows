@@ -58,7 +58,6 @@ async function run(): Promise<void> {
 
         const emacsBin = emacsDir + "bin";
         core.exportVariable("PATH", "%PATH%;" + emacsBin);
-        //core.addPath(emacsBin);
 
         core.endGroup();
 
