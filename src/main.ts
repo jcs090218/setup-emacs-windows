@@ -17,29 +17,35 @@ async function run(): Promise<void> {
             case "23.4":
             case "24.1":
             case "24.2":
-            case "24.3":
+            case "24.3": {
                 zipPath += "-bin-i386.zip";
                 break;
-            case "24.4":
+            }
+            case "24.4": {
                 zipPath += "-bin-i686-pc-mingw32.zip";
                 break;
-            case "24.5":
+            }
+            case "24.5": {
                 zipPath += "-bin-i686-mingw32.zip";
                 break;
-            case "25.1":
+            }
+            case "25.1": {
                 zipPath += "-x86_64-w64-mingw32.zip";
                 break;
+            }
             case "25.2":
             case "25.3":
             case "26.1":
             case "26.2":
             case "26.3":
-            case "27.1":
+            case "27.1": {
                 zipPath += "-x86_64.zip";
                 break;
-            default:
+            }
+            default: {
                 zipPath += "-x86_64.zip";
                 break;
+            }
         }
 
         console.log("zipPath: " + zipPath);
