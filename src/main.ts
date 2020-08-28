@@ -68,9 +68,9 @@ async function run(): Promise<void> {
             emacsBin = emacsDir + "\\" + emacs_dot_var + "\\bin";
         }
 
-        //const cachtedPath = await tc.cacheDir(emacsBin, "emacs", dot_ver);
-        //core.addPath(cachtedPath);
-        core.exportVariable("PATH", "%PATH%;" + emacsBin);
+        const cachtedPath = await tc.cacheDir(emacsBin, "emacs", dot_ver);
+        core.addPath(cachtedPath);
+        //core.exportVariable("PATH", "%PATH%;" + emacsBin);
 
         await exec.exec("echo %PATH%");
 
