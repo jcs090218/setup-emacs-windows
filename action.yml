@@ -2,7 +2,7 @@ name: 'Test and learn GitHub action'
 description: 'Test and learn GitHub action.'
 author: 'Jen-Chieh Shen'
 inputs:
-  version: # change this
+  version:
     description: 'input description here'
 runs:
   using: 'node12'
