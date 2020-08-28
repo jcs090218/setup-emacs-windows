@@ -2,19 +2,19 @@ import * as core from '@actions/core';
 import * as exec from "@actions/exec";
 import * as io from "@actions/io";
 import * as tc from "@actions/tool-cache";
+import fs from 'fs'
 
 async function run(): Promise<void> {
     try {
         const PATH = process.env.PATH;
 
         const version = core.getInput("version");
-        const ver_lst = version.split(".");
-        const emacs_major_ver = ver_lst[0];
-        const emacs_minor_ver = ver_lst[1];
-        const dot_ver = emacs_major_ver + "." + emacs_minor_ver;
-        const dash_ver = emacs_major_ver + "-" + emacs_minor_ver;
-        const emacs_dot_var = "emacs-" + dot_ver;
-        const emacs_dash_ver = "emacs-" + dash_ver;
+        const ver_lst = version.split(".");  // if 27.1
+        const emacs_major_ver = ver_lst[0];  // 27
+        const emacs_minor_ver = ver_lst[1];  // 1
+        const dot_ver = emacs_major_ver + "." + emacs_minor_ver;  // 27.1
+        const dash_ver = emacs_major_ver + "-" + emacs_minor_ver;  // 27-1
+        const emacs_dot_var = "emacs-" + dot_ver;  // emacs-27.1
 
         core.startGroup("Installing Emacs");
         const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
@@ -60,7 +60,12 @@ async function run(): Promise<void> {
 
         await exec.exec("dir dist");
 
-        const emacsBin = emacsDir + "\\bin";
+        let emacsBin = emacsDir + "\\bin";
+
+        if (fs.existsSync(emacsBin)) {
+            emacsBin = emacsDir + "\\" + emacs_dot_var + "\\bin";
+        }
+
         console.log("emacsBin: " + emacsBin);
         const cachtedPath = await tc.cacheDir(emacsBin, "emacs", dot_ver);
         core.addPath(cachtedPath);
