@@ -57,9 +57,8 @@ async function run(): Promise<void> {
         const emacsDir = await tc.extractZip(emacsZip, './');
 
         const emacsBin = emacsDir + "bin";
-        // console.log("emacsBin: " + emacsBin);
-        // core.exportVariable("PATH", "%PATH%;" + emacsBin);
-        core.addPath(emacsBin);
+        core.exportVariable("PATH", "%PATH%;" + emacsBin);
+        //core.addPath(emacsBin);
 
         core.endGroup();
 
