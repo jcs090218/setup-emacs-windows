@@ -55,7 +55,7 @@ async function run(): Promise<void> {
             }
         }
 
-        const extractPath = __dirname + "\\..\\temp";
+        const extractPath = "c:\\emacs";
         if (!fs.existsSync(extractPath)) {
             fs.mkdirSync(extractPath);
         }
