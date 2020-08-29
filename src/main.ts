@@ -63,11 +63,14 @@ async function run(): Promise<void> {
         const emacsZip = await tc.downloadTool(zipPath);
         const emacsDir = await tc.extractZip(emacsZip, extractPath);
 
-        let emacsBin = emacsDir + "\\bin";
+        let emacsRoot = emacsDir;
+        let emacsBin = emacsRoot + "\\bin";
         if (!fs.existsSync(emacsBin)) {
-            emacsBin = emacsDir + "\\" + emacs_dot_var + "\\bin";
+            emacsRoot = emacsDir + "\\" + emacs_dot_var;
+            emacsBin = emacsRoot + "\\bin";  // Refresh
         }
 
+        core.exportVariable("PATH", `${PATH};${emacsRoot}`);
         core.exportVariable("PATH", `${PATH};${emacsBin}`);
 
         core.endGroup();
