@@ -26,5 +26,3 @@ jobs:
         version: ${{ matrix.emacs_version }}
     - name: Check emacs version
       run: emacs --version
-    - name: Start Emacs
-      run: emacs -nw
