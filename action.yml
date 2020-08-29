@@ -1,9 +1,9 @@
-name: 'Test and learn GitHub action'
-description: 'Test and learn GitHub action.'
-author: 'Jen-Chieh Shen'
+name: 'Set up Emacs in Windows'
+description: 'Install a specific Emacs version for use in your worflow.'
+author: 'Shen, Jen-Chieh'
 inputs:
   version:
-    description: 'input description here'
+    description: 'The version of Emacs to install, e.g. "24.3".'
 runs:
   using: 'node12'
   main: 'dist/index.js'
