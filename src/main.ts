@@ -73,6 +73,9 @@ async function run(): Promise<void> {
         core.exportVariable("PATH", `${PATH};${emacsRoot}`);
         core.exportVariable("PATH", `${PATH};${emacsBin}`);
 
+        console.log("emacsRoot: " + emacsRoot);
+        console.log("emacsBin: " + emacsBin);
+
         await exec.exec("dir c:\\emacs");
 
         core.endGroup();
