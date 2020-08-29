@@ -70,8 +70,8 @@ async function run(): Promise<void> {
 
         //const cachtedPath = await tc.cacheDir(emacsBin, "emacs", dot_ver);
         //core.addPath(cachtedPath);
-        core.addPath(emacsBin);
-        //core.exportVariable("PATH", "%PATH%;" + emacsBin);
+        //core.addPath(emacsBin);
+        core.exportVariable("PATH", `${PATH};${emacsBin}`);
 
         core.endGroup();
 
