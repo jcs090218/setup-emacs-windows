@@ -1428,55 +1428,63 @@ function run() {
             const dash_ver = emacs_major_ver + "-" + emacs_minor_ver; // 27-1
             const emacs_dot_var = "emacs-" + dot_ver; // emacs-27.1
             core.startGroup("Installing Emacs");
-            const ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
+            let ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
             let zipPath = ftpUrl + emacs_dot_var;
-            switch (dot_ver) {
-                case "23.4":
-                case "24.1":
-                case "24.2":
-                case "24.3": {
-                    zipPath += "-bin-i386.zip";
-                    break;
-                }
-                case "24.4": {
-                    zipPath += "-bin-i686-pc-mingw32.zip";
-                    break;
-                }
-                case "24.5": {
-                    zipPath += "-bin-i686-mingw32.zip";
-                    break;
-                }
-                case "25.1": {
-                    zipPath += "-x86_64-w64-mingw32.zip";
-                    break;
-                }
-                case "25.2":
-                case "25.3":
-                case "26.1":
-                case "26.2":
-                case "26.3":
-                case "27.1": {
-                    zipPath += "-x86_64.zip";
-                    break;
-                }
-                default: {
-                    zipPath += "-x86_64.zip";
-                    break;
+            if (version == "snapshot") {
+                // NOTE: If snapshot, directly assign the newest version.
+                // Current newest snaptshot is `28.0.50`.
+                zipPath = "https://alpha.gnu.org/gnu/emacs/pretest/windows/emacs-28/emacs-28.0.50-snapshot-2020-07-05-x86_64.zip";
+            }
+            else {
+                switch (dot_ver) {
+                    case "23.4":
+                    case "24.1":
+                    case "24.2":
+                    case "24.3": {
+                        zipPath += "-bin-i386.zip";
+                        break;
+                    }
+                    case "24.4": {
+                        zipPath += "-bin-i686-pc-mingw32.zip";
+                        break;
+                    }
+                    case "24.5": {
+                        zipPath += "-bin-i686-mingw32.zip";
+                        break;
+                    }
+                    case "25.1": {
+                        zipPath += "-x86_64-w64-mingw32.zip";
+                        break;
+                    }
+                    case "25.2":
+                    case "25.3":
+                    case "26.1":
+                    case "26.2":
+                    case "26.3":
+                    case "27.1": {
+                        zipPath += "-x86_64.zip";
+                        break;
+                    }
+                    default: {
+                        zipPath += "-x86_64.zip";
+                        break;
+                    }
                 }
             }
-            const extractPath = __dirname + "\\..\\temp";
+            const extractPath = "c:\\emacs";
             if (!fs_1.default.existsSync(extractPath)) {
                 fs_1.default.mkdirSync(extractPath);
             }
             const emacsZip = yield tc.downloadTool(zipPath);
             const emacsDir = yield tc.extractZip(emacsZip, extractPath);
-            let emacsBin = emacsDir + "\\bin";
+            let emacsRoot = emacsDir;
+            let emacsBin = emacsRoot + "\\bin";
             if (!fs_1.default.existsSync(emacsBin)) {
-                emacsBin = emacsDir + "\\" + emacs_dot_var + "\\bin";
+                emacsRoot = emacsDir + "\\" + emacs_dot_var;
+                emacsBin = emacsRoot + "\\bin"; // Refresh
             }
-            const cachtedPath = yield tc.cacheDir(emacsBin, "emacs", dot_ver);
-            core.addPath(cachtedPath);
-            core.exportVariable("PATH", "%PATH%;" + emacsBin);
+            core.exportVariable("PATH", `${PATH};${emacsRoot}`);
+            core.exportVariable("PATH", `${PATH};${emacsBin}`);
             core.endGroup();
         }
         catch (error) {
