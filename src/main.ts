@@ -73,6 +73,8 @@ async function run(): Promise<void> {
         //core.addPath(emacsBin);
         core.exportVariable("PATH", `${PATH};${emacsBin}`);
 
+        await exec.exec("git --version");
+
         core.endGroup();
 
     } catch (error) {
