@@ -3,7 +3,7 @@ description: 'Install a specific Emacs version for use in your worflow.'
 author: 'Shen, Jen-Chieh'
 inputs:
   version:
-    description: 'The version of Emacs to install, e.g. "24.3".'
+    description: 'The version of Emacs to install, e.g. "24.3", or "snapshot" for a recent development version.'
 runs:
   using: 'node12'
   main: 'dist/index.js'
