@@ -1,4 +1,5 @@
 [![Build Status](https://github.com/jcs090218/setup-emacs-windows/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions)
+[![Release Tag](https://img.shields.io/github/tag/jcs090218/setup-emacs-windows.svg?label=release)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Set up Emacs in Windows
