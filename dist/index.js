@@ -5015,7 +5015,8 @@ function run() {
                     case "26.1":
                     case "26.2":
                     case "26.3":
-                    case "27.1": {
+                    case "27.1":
+                    case "27.2": {
                         zipPath += "-x86_64.zip";
                         break;
                     }
