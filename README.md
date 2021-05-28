@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Release Tag](https://img.shields.io/github/v/release/jcs090218/setup-emacs-windows.svg)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
+[![Release Tag](https://img.shields.io/github/release/jcs090218/setup-emacs-windows.svg?logo=github)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
 [![Build Status](https://github.com/jcs090218/setup-emacs-windows/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions)
 [![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs-windows.svg)](https://david-dm.org/jcs090218/setup-emacs-windows)
 
