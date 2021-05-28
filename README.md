@@ -6,7 +6,7 @@
 # Set up Emacs in Windows
 > A Github Action that installs a specific emacs version
 
-## Usage:
+## Usage
 
 ```yaml
 uses: jcs090218/setup-emacs-windows@master
