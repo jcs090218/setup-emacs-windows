@@ -1,10 +1,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Release Tag](https://img.shields.io/github/release/jcs090218/setup-emacs-windows.svg?logo=github)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
-[![Build Status](https://github.com/jcs090218/setup-emacs-windows/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions)
-[![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs-windows.svg)](https://david-dm.org/jcs090218/setup-emacs-windows)
 
 # Set up Emacs in Windows
 > A Github Action that installs a specific emacs version
+
+[![Build Status](https://github.com/jcs090218/setup-emacs-windows/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions)
+[![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs-windows.svg)](https://david-dm.org/jcs090218/setup-emacs-windows)
 
 ## Usage
 
