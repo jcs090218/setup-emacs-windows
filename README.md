@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Release Tag](https://img.shields.io/github/release/jcs090218/setup-emacs-windows.svg?logo=github)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
+[![Release Tag](https://img.shields.io/github/tag/jcs090218/setup-emacs-windows.svg?label=release&logo=github)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
 
 # Set up Emacs in Windows
 > A Github Action that installs a specific emacs version
