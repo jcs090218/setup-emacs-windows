@@ -21,8 +21,10 @@ jobs:
 
     - run: npm ci
     - run: npm run build
+
     - uses: ./
       with:
         version: ${{ matrix.emacs_version }}
+
     - name: Check emacs version
       run: emacs --version
