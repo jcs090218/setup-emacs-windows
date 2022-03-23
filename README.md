@@ -5,7 +5,7 @@
 > A Github Action that installs a specific emacs version
 
 [![Build Status](https://github.com/jcs090218/setup-emacs-windows/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions)
-[![Update dist](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/dist.yml/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/dist.yml)
+[![Build](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/build.yml/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/build.yml)
 [![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs-windows.svg)](https://david-dm.org/jcs090218/setup-emacs-windows)
 
 ## Usage
