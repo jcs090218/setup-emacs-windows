@@ -82,6 +82,8 @@ async function run(): Promise<void> {
 
         core.endGroup();
 
+        // show Emacs version
+        await exec.exec('emacs', ['--version']);
     } catch (error) {
         core.setFailed(error.message);
     }
