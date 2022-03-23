@@ -1,0 +1,36 @@
+name: 'Update dist'
+on:
+  pull_request:
+  push:
+    paths-ignore:
+    - '**.md'
+    - '**.org'
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+        emacs_version: [23.4, 24.1, 24.2, 24.3, 24.4, 24.5, 25.1, 25.2, 25.3, 26.1, 26.2, 26.3, 27.1, 27.2, snapshot]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - run: npm install
+    - run: npm run-script build
+
+    - name: Set git config
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+
+    - name: Push dist
+      continue-on-error: true
+      run: |
+        git pull
+        git add .
+        git commit -m "Update dist"
+        git push
