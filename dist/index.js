@@ -5497,6 +5497,10 @@ function run() {
                         zipPath += "-x86_64.zip";
                         break;
                     }
+                    case "28.1": {
+                        zipPath += ".zip";
+                        break;
+                    }
                     default: {
                         zipPath += "-x86_64.zip";
                         break;
