@@ -1,4 +1,5 @@
 name: 'Build'
+
 on:
   pull_request:
   push:
@@ -7,6 +8,10 @@ on:
     - '**.org'
     branches:
       - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   dist:
