@@ -12,6 +12,7 @@ on:
     - '**.org'
     branches:
       - master
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
