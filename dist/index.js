@@ -7225,7 +7225,8 @@ function run() {
                         zipPath += "-x86_64.zip";
                         break;
                     }
-                    case "28.1": {
+                    case "28.1":
+                    case "28.2": {
                         zipPath += ".zip";
                         break;
                     }
