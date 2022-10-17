@@ -86,9 +86,6 @@ async function run(): Promise<void> {
             });
         }
 
-        console.log('emacsRoot: ' + emacsRoot);
-        console.log('emacsBin: ' + emacsBin);
-
         core.exportVariable("PATH", `${PATH};${emacsRoot}`);
         core.exportVariable("PATH", `${PATH};${emacsBin}`);
 

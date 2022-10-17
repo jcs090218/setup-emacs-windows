@@ -7251,8 +7251,6 @@ function run() {
                     emacsBin = emacsRoot + "\\bin";
                 });
             }
-            console.log('emacsRoot: ' + emacsRoot);
-            console.log('emacsBin: ' + emacsBin);
             core.exportVariable("PATH", `${PATH};${emacsRoot}`);
             core.exportVariable("PATH", `${PATH};${emacsBin}`);
             core.endGroup();
