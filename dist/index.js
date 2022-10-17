@@ -7245,9 +7245,14 @@ function run() {
             let emacsRoot = emacsDir;
             let emacsBin = emacsRoot + "\\bin";
             if (!fs_1.default.existsSync(emacsBin)) {
-                emacsRoot = emacsDir + "\\" + emacs_dot_var;
-                emacsBin = emacsRoot + "\\bin"; // Refresh
+                // It should only have one directory, which is the root directory.
+                fs_1.default.readdirSync(emacsRoot).forEach(file => {
+                    emacsRoot = emacsDir + "\\" + file;
+                    emacsBin = emacsRoot + "\\bin";
+                });
             }
+            console.log('emacsRoot: ' + emacsRoot);
+            console.log('emacsBin: ' + emacsBin);
             core.exportVariable("PATH", `${PATH};${emacsRoot}`);
             core.exportVariable("PATH", `${PATH};${emacsBin}`);
             core.endGroup();
