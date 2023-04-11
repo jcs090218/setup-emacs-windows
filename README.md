@@ -1,3 +1,8 @@
+> 💡 Tip
+>
+> I've created another GitHub Actions that supports across all platforms (Linux, macOS, and Windows),
+> see [jcs090218/setup-emacs](https://github.com/jcs090218/setup-emacs) for more information!
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Release Tag](https://img.shields.io/github/tag/jcs090218/setup-emacs-windows.svg?label=release&logo=github)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
 
