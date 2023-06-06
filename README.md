@@ -6,6 +6,7 @@ people use that instead of this one!**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Release Tag](https://img.shields.io/github/tag/jcs090218/setup-emacs-windows.svg?label=release&logo=github)](https://github.com/jcs090218/setup-emacs-windows/releases/latest)
+<a href="#"><img align="right" src="./etc/emacs-logo.png" width="15%"></a>
 
 # Set up Emacs in Windows
 > A Github Action that installs a specific emacs version
