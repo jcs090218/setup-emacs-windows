@@ -51,12 +51,13 @@ async function run(): Promise<void> {
                 case "26.2":
                 case "26.3":
                 case "27.1":
-                case "27.2":{
+                case "27.2": {
                     zipPath += "-x86_64.zip";
                     break;
                 }
                 case "28.1":
-                case "28.2":{
+                case "28.2":
+                case "29.1": {
                     zipPath += ".zip";
                     break;
                 }
