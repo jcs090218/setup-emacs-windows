@@ -16,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - run: npm ci
-    - run: npm run build
-
     - uses: jcs090218/setup-emacs@master
       with:
         version: 29.1
