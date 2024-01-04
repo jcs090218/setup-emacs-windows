@@ -44,7 +44,7 @@ For example, `emacs-29.1_2.zip' to `29.1.2'."
     (goto-char (point-min))
     (search-forward "emacs_version: [")
     (goto-char (- (line-end-position) 9))
-    (insert version ", ")
+    (insert latest ", ")
     (save-buffer)))
 
 (defun update-stable-to-src (latest)
@@ -55,7 +55,7 @@ For example, `emacs-29.1_2.zip' to `29.1.2'."
     (forward-line -4)
     (goto-char (line-end-position))
     (search-backward "{")
-    (insert "\n" (spaces-string (current-indentation)) "case \"" "29.1.2" "\": ")
+    (insert "\n" (spaces-string (current-indentation)) "case \"" latest "\": ")
     (save-buffer)))
 
 (defun navigate-version-folder (dir)
