@@ -32,7 +32,7 @@
   "Convert the file to just the version.
 
 For example, `emacs-29.1_2.zip' to `29.1.2'."
-  (let ((file (file (get-latest-snapshot response))))
+  (let ((file (get-latest-snapshot response)))
     (setq file (s-replace "emacs-" "" file)
           file (s-replace ".zip" "" file)
           file (s-replace "_" "." file))
@@ -71,7 +71,8 @@ to form the new url ourselves."
        (lambda (&key response &allow-other-keys)
          (let ((latest (extract-latest-version response)))
            (update-gha-workflow latest)
-           (update-stable-to-src latest)))))))
+           (update-stable-to-src latest)
+           ))))))
 
 (request "https://ftp.gnu.org/gnu/emacs/windows/"
   :sync t
