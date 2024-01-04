@@ -1,0 +1,34 @@
+name: 'Update Snapshot'
+
+on:
+  schedule:
+    - cron:  '0 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - run: npm ci
+    - run: npm run build
+
+    - uses: jcs090218/setup-emacs@master
+      with:
+        version: 29.1
+
+    - uses: emacs-eask/setup-eask@master
+      with:
+        version: snapshot
+
+    - name: Check emacs version
+      run: |
+        eask install-deps --dev
+        eask load ./scripts/update-snapshot.el
+
