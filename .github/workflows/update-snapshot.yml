@@ -44,5 +44,4 @@ jobs:
         body: ''
         commit-message: 'Update emacs snapshots'
         branch: snapshot-update
-        branch-suffix: timestamp
         delete-branch: true

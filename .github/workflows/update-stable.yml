@@ -44,5 +44,4 @@ jobs:
         body: ''
         commit-message: 'Update emacs stable'
         branch: stable-update
-        branch-suffix: timestamp
         delete-branch: true
