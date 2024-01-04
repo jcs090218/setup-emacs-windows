@@ -32,17 +32,12 @@ jobs:
         eask install-deps --dev
         eask load ./scripts/update-snapshot.el
 
-    - name: Set git config
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-
-    - name: Commit
-      continue-on-error: true
-      run: |
-        git pull
-        git add .
-        git commit -m "Update snapshot"
-
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
+      with:
+        title: 'Update emacs snapshots'
+        body: ''
+        commit-message: 'Update emacs snapshots'
+        branch: snapshot-update
+        branch-suffix: timestamp
+        delete-branch: true
