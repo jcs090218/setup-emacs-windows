@@ -44,7 +44,8 @@ For example, `emacs-29.1_2.zip' to `29.1.2'."
     (goto-char (point-min))
     (search-forward "emacs_version: [")
     (goto-char (- (line-end-position) 9))
-    (insert latest ", ")
+    (unless (s-contains-p (concat ", " latest ", ") (thing-at-point 'line t))
+      (insert latest ", "))
     (save-buffer)))
 
 (defun update-stable-to-src (latest)
@@ -71,8 +72,7 @@ to form the new url ourselves."
        (lambda (&key response &allow-other-keys)
          (let ((latest (extract-latest-version response)))
            (update-gha-workflow latest)
-           (update-stable-to-src latest)
-           ))))))
+           (update-stable-to-src latest)))))))
 
 (request "https://ftp.gnu.org/gnu/emacs/windows/"
   :sync t
