@@ -44,10 +44,5 @@ jobs:
         git add .
         git commit -m "Update snapshot"
 
-    - name: Push updated source
-      continue-on-error: true
-      uses: jcs090218/github-push-action@master
-      with:
-        branch: master
-        rebase: true
-        retry: 3
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
