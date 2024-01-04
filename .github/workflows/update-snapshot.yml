@@ -27,7 +27,7 @@ jobs:
       with:
         version: snapshot
 
-    - name: Check emacs version
+    - name: Update snapshot
       run: |
         eask install-deps --dev
         eask load ./scripts/update-snapshot.el

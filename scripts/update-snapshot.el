@@ -94,7 +94,7 @@ It should return a string. e.g., `emacs-30.0.50-bc61a1.zip'."
       (goto-char (point-min))
       (search-forward "zipPath = \"")
       (delete-region (point) (- (line-end-position) 2))
-      (insert snapshot-url "sss")
+      (insert snapshot-url)
       (save-buffer))))
 
 (defun navigate-version-folder (dir)
