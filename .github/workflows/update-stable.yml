@@ -1,0 +1,43 @@
+name: 'Update Stable'
+
+on:
+  schedule:
+    - cron:  '0 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - run: npm ci
+    - run: npm run build
+
+    - uses: jcs090218/setup-emacs@master
+      with:
+        version: 29.1
+
+    - uses: emacs-eask/setup-eask@master
+      with:
+        version: snapshot
+
+    - name: Update stable
+      run: |
+        eask install-deps --dev
+        eask load ./scripts/update-stable.el
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        title: 'Update emacs snapshots'
+        body: ''
+        commit-message: 'Update emacs snapshots'
+        branch: snapshot-update
+        branch-suffix: timestamp
+        delete-branch: true

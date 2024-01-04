@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'rect)
+
 (require 'request)
 (require 's)
 

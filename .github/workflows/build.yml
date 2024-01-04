@@ -9,7 +9,7 @@ on:
     branches:
       - master
   workflow_run:
-    workflows: ["Update Snapshot"]
+    workflows: ["Update Snapshot", "Update Stable"]
     types:
       - completed
   workflow_dispatch:
