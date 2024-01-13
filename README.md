@@ -15,7 +15,7 @@ people use that instead of this one!**
 [![Build](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/build.yml/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/build.yml)
 [![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs-windows.svg)](https://david-dm.org/jcs090218/setup-emacs-windows)
 
-## Usage
+## 🔧 Usage
 
 ```yaml
 uses: jcs090218/setup-emacs-windows@master
@@ -32,7 +32,7 @@ version. For a list of available versions, please see the
 [Here's an example](https://github.com/xuchunyang/strptime.el) of a project which
 compiles binary modules against an Emacs installed with this method.
 
-## License
+## ⚜️ License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
