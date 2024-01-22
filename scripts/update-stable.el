@@ -51,13 +51,14 @@ For example, `emacs-29.1_2.zip' to `29.1.2'."
 (defun update-stable-to-src (latest)
   "Paste the new snapshot to `src/main.ts'"
   (with-current-buffer (find-file "./src/main.ts")
-    (goto-char (point-min))
-    (search-forward "default: {")
-    (forward-line -4)
-    (goto-char (line-end-position))
-    (search-backward "{")
-    (insert "\n" (spaces-string (current-indentation)) "case \"" latest "\": ")
-    (save-buffer)))
+    (unless (string-match-p (concat "\"" latest "\": "))
+      (goto-char (point-min))
+      (search-forward "default: {")
+      (forward-line -4)
+      (goto-char (line-end-position))
+      (search-backward "{")
+      (insert "\n" (spaces-string (current-indentation)) "case \"" latest "\": ")
+      (save-buffer))))
 
 (defun navigate-version-folder (dir)
   "After navigate to latest emacs version.
