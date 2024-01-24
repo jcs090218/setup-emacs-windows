@@ -51,7 +51,7 @@ For example, `emacs-29.1_2.zip' to `29.1.2'."
 (defun update-stable-to-src (latest)
   "Paste the new snapshot to `src/main.ts'"
   (with-current-buffer (find-file "./src/main.ts")
-    (unless (string-match-p (concat "\"" latest "\": "))
+    (unless (string-match-p (concat "\"" latest "\": ") (buffer-string))
       (goto-char (point-min))
       (search-forward "default: {")
       (forward-line -4)
