@@ -26,6 +26,7 @@ async function run(): Promise<void> {
             zipPath = "https://alpha.gnu.org/gnu/emacs/pretest/windows/emacs-30/emacs-30.0.50-bc61a1.zip";
         } else {
             switch (dot_ver) {
+                case "22.3":
                 case "23.4":
                 case "24.1":
                 case "24.2":
