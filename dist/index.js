@@ -7196,6 +7196,7 @@ function run() {
             }
             else {
                 switch (dot_ver) {
+                    case "22.3":
                     case "23.4":
                     case "24.1":
                     case "24.2":
