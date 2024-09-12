@@ -23,7 +23,7 @@ async function run(): Promise<void> {
         if (version == "snapshot") {
             // NOTE: If snapshot, directly assign the newest version.
             // Current newest snaptshot is `30.0.50`.
-            zipPath = "https://alpha.gnu.org/gnu/emacs/pretest/windows/emacs-30/emacs-30.0.50-bc61a1.zip";
+            zipPath = "https://alpha.gnu.org/gnu/emacs/pretest/windows/emacs-30/emacs-30-deps-20240912.zip";
         } else {
             switch (dot_ver) {
                 case "22.3":
