@@ -9,7 +9,7 @@ people use that instead of this one!**
 <a href="#"><img align="right" src="./etc/emacs-logo.png" width="15%"></a>
 
 # Set up Emacs in Windows
-> A Github Action that installs a specific emacs version
+> A GitHub Action that installs a specific emacs version
 
 [![Build Status](https://github.com/jcs090218/setup-emacs-windows/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions)
 [![Build](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/build.yml/badge.svg)](https://github.com/jcs090218/setup-emacs-windows/actions/workflows/build.yml)
