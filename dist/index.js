@@ -7192,7 +7192,7 @@ function run() {
             if (version == "snapshot") {
                 // NOTE: If snapshot, directly assign the newest version.
                 // Current newest snaptshot is `30.0.50`.
-                zipPath = "https://alpha.gnu.org/gnu/emacs/pretest/windows/emacs-30/emacs-30.0.92.zip";
+                zipPath = "https://alpha.gnu.org/gnu/emacs/pretest/windows/emacs-30/emacs-30.0.93.zip";
             }
             else {
                 switch (dot_ver) {
