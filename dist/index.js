@@ -7231,7 +7231,8 @@ function run() {
                     case "29.1":
                     case "29.2":
                     case "29.3":
-                    case "29.4": {
+                    case "29.4":
+                    case "30.1": {
                         zipPath += ".zip";
                         break;
                     }
