@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "setup-emacs-windows"
          "4.0.0"
          "A Github Action that installs a specific emacs version")
