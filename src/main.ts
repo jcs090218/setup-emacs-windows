@@ -3,8 +3,10 @@ import * as exec from "@actions/exec";
 import * as tc from "@actions/tool-cache";
 import fs from 'fs';
 
-function downloadEmacsUri(base: string) {
-    const version = core.getInput("version");
+/**
+ *  Return a Emacs zip path.
+ */
+function downloadEmacsZip(base: string, version: string) {
     const ver_lst = version.split(".");  // if 27.1
     const emacs_major_ver = ver_lst[0];  // 27
     const emacs_minor_ver = ver_lst[1];  // 1
@@ -72,8 +74,11 @@ function downloadEmacsUri(base: string) {
     return zipPath;
 }
 
-async function downloadEmacs(base: string): Promise<string | null> {
-    let zipPath = downloadEmacsUri(base);
+/**
+ *  Attempt to download Emacs, else return null.
+ */
+async function downloadEmacs(base: string, version: string): Promise<string | null> {
+    let zipPath = downloadEmacsZip(base, version);
     try {
         return tc.downloadTool(zipPath);
     } catch (err) {
@@ -81,12 +86,18 @@ async function downloadEmacs(base: string): Promise<string | null> {
     }
 }
 
+
+/**
+ *  Action entry.
+ */
 async function run(): Promise<void> {
     try {
         const PATH = process.env.PATH;
 
-        const emacsZip = await downloadEmacs("https://ftp.gnu.org/gnu/emacs/windows/")
-            ?? await downloadEmacs("https://ftp.man.poznan.pl/gnu/emacs/windows/");
+        const version = core.getInput("version");
+
+        const emacsZip = await downloadEmacs("https://ftp.gnu.org/gnu/emacs/windows/", version)
+            ?? await downloadEmacs("https://ftp.man.poznan.pl/gnu/emacs/windows/", version);
 
         if (!emacsZip) {
             throw new Error("Failed to download Emacs from all sources.");
