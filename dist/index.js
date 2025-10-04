@@ -7266,7 +7266,7 @@ function run() {
         try {
             const PATH = process.env.PATH;
             const version = core.getInput("version");
-            const emacsZip = (_a = yield downloadEmacs("https://ftp.gnu.org/gnu/emacs/windows/", version)) !== null && _a !== void 0 ? _a : yield downloadEmacs("https://ftp.man.poznan.pl/gnu/emacs/windows/", version);
+            const emacsZip = (_a = yield downloadEmacs("https://ftp.man.poznan.pl/gnu/emacs/windows/", version)) !== null && _a !== void 0 ? _a : yield downloadEmacs("https://ftp.gnu.org/gnu/emacs/windows/", version);
             if (!emacsZip) {
                 throw new Error("Failed to download Emacs from all sources.");
             }
