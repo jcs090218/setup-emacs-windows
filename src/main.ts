@@ -96,8 +96,9 @@ async function run(): Promise<void> {
 
         const version = core.getInput("version");
 
-        const emacsZip = await downloadEmacs("https://ftp.gnu.org/gnu/emacs/windows/", version)
-            ?? await downloadEmacs("https://ftp.man.poznan.pl/gnu/emacs/windows/", version);
+        const emacsZip =
+            await downloadEmacs("https://ftp.man.poznan.pl/gnu/emacs/windows/", version)
+            ?? await downloadEmacs("https://ftp.gnu.org/gnu/emacs/windows/", version);
 
         if (!emacsZip) {
             throw new Error("Failed to download Emacs from all sources.");

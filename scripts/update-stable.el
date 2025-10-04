@@ -65,7 +65,7 @@ For example, `emacs-29.1_2.zip' to `29.1.2'."
 
 The argument DIR is a string like `emacs-30'; therefore, we will need
 to form the new url ourselves."
-  (let ((new-dir (concat "https://ftp.gnu.org/gnu/emacs/windows/" dir "/")))
+  (let ((new-dir (concat ftp-source dir "/")))
     (request new-dir
       :sync t
       :complete
@@ -75,7 +75,7 @@ to form the new url ourselves."
            (update-gha-workflow latest)
            (update-stable-to-src latest)))))))
 
-(request "https://ftp.gnu.org/gnu/emacs/windows/"
+(request ftp-source
   :sync t
   :complete
   (cl-function

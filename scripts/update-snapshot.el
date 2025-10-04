@@ -44,7 +44,7 @@
 
 The argument DIR is a string like `emacs-30'; therefore, we will need
 to form the new url ourselves."
-  (let ((new-dir (concat "https://alpha.gnu.org/gnu/emacs/pretest/windows/" dir "/")))
+  (let ((new-dir (concat ftp-source-snapshot dir "/")))
     (request new-dir
       :sync t
       :complete
@@ -52,7 +52,7 @@ to form the new url ourselves."
        (lambda (&key response &allow-other-keys)
          (update-snapshot-to-src new-dir response))))))
 
-(request "https://alpha.gnu.org/gnu/emacs/pretest/windows/"
+(request ftp-source-snapshot
   :sync t
   :complete
   (cl-function

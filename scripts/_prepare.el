@@ -7,6 +7,12 @@
 (require 'request)
 (require 's)
 
+(defconst ftp-source "https://ftp.gnu.org/gnu/emacs/windows/"
+  "The source.")
+
+(defconst ftp-source-snapshot "https://alpha.gnu.org/gnu/emacs/pretest/windows/"
+  "The snapshot source.")
+
 (defun get-major-version (response)
   "Return the latest snapshot string."
   (let ((data (request-response-data response)))
