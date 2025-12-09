@@ -131,7 +131,11 @@ async function run(): Promise<void> {
         // show Emacs version
         await exec.exec('emacs', ['--version']);
     } catch (error) {
-        core.setFailed(error.message);
+        if (error instanceof Error) {
+            core.setFailed(error.message);
+        } else {
+            core.setFailed(String(error));
+        }
     }
 }
 
