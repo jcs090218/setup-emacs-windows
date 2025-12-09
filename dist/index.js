@@ -28850,7 +28850,12 @@ function run() {
             yield exec.exec('emacs', ['--version']);
         }
         catch (error) {
-            core.setFailed(error.message);
+            if (error instanceof Error) {
+                core.setFailed(error.message);
+            }
+            else {
+                core.setFailed(String(error));
+            }
         }
     });
 }
