@@ -34656,7 +34656,8 @@ function downloadEmacsZip(base, version) {
             case "29.3":
             case "29.4":
             case "30.1":
-            case "30.2": {
+            case "30.2":
+            case "31.1": {
                 zipPath += ".zip";
                 break;
             }
